@@ -1,0 +1,6 @@
+export const local = {
+	API_BASE_URL_USER: "http://192.168.0.136:3002/",
+	API_BASE_URL_REVIEW: "http://192.168.0.136:3003/",
+	API_BASE_URL_BLOG_SYSTEM: "http://192.168.0.136:3004/",
+	API_BASE_URL_BLOG: "http://192.168.0.136:3005/",
+}

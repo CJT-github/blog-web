@@ -1,0 +1,65 @@
+@import "./variable.scss";
+
+@mixin bg_color() {
+  background: $background-color-light;
+  [data-theme="dark"] & {
+    background: $background-color-dark;
+  }
+}
+@mixin bg_sub_color() {
+  background: $background-color-sub-light;
+  [data-theme="dark"] & {
+    background: $background-color-sub-dark;
+  }
+}
+
+@mixin font_color() {
+  color: $font-color-light;
+  [data-theme="dark"] & {
+    color: $font-color-dark;
+  }
+}
+@mixin font_active_color() {
+  color: $font-active-color-light;
+  [data-theme="dark"] & {
+    color: $font-active-color-dark;
+  }
+}
+
+@mixin icon_color() {
+  color: $icon-color-light;
+  [data-theme="dark"] & {
+    color: $icon-color-dark;
+  }
+}
+
+@mixin border_color() {
+  border-color: $border-color-light;
+  [data-theme="dark"] & {
+    border-color: $border-color-dark;
+  }
+}
+
+@mixin hover_color() {
+  &:hover,
+  &:hover * {
+    background-color: $hover-bg-light;
+    color: $hover-color-light;
+    [data-theme="dark"] & {
+      background-color: $hover-bg-dark;
+      color: $hover-color-dark;
+    }
+  }
+}
+
+@mixin theme_box_shadow() {
+  --shadow: 0 0px 4px 2px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow);
+  border-color: $border-color-light;
+  border-width: 0px;
+  [data-theme="dark"] & {
+    box-shadow: none;
+    border-width: 1px;
+    border-color: $border-color-dark;
+  }
+}

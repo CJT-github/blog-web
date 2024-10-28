@@ -1,0 +1,50 @@
+@import "@/assets/style/variable.scss";
+@import "@/assets/style/mixin.scss";
+
+.bg_color {
+  @include bg_color();
+}
+
+.bg_sub_color {
+  @include bg_sub_color();
+}
+
+.font_color {
+  @include font_color();
+}
+
+.font_active_color {
+  @include font_active_color();
+}
+
+.icon_color {
+  @include icon_color();
+}
+
+.border_color {
+  @include border_color();
+}
+
+.hover_color {
+  @include hover_color();
+}
+
+.theme_box_shadow {
+  @include theme_box_shadow();
+}
+
+.message_success {
+  color: green;
+}
+
+.message_warning {
+  color: #f6780c;
+}
+
+.message_info {
+  color: black;
+}
+
+.message_error {
+  color: red;
+}

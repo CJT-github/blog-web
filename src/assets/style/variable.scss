@@ -1,0 +1,40 @@
+/* 字体定义规范 */
+$font_samll: 12px;
+$font_medium_s: 14px;
+$font_medium: 16px;
+$font_large: 18px;
+
+/* 背景颜色规范(主要) */
+$background-color-light: #ffffff; //背景主题颜色默认
+$background-color-dark: #333333; //背景主题颜色
+
+/* 背景颜色规范(次要) */
+$background-color-sub-light: #f5f5f5; //背景主题颜色默认
+$background-color-sub-dark: #f5f5f5; //背景主题颜色1
+
+/* 字体颜色规范(默认) */
+$font-color-light: #666; //字体主题颜色默认
+$font-color-dark: #ddd; //字体主题颜色2
+
+/* hover 背景*/
+$hover-bg-light: #2aa474; //hover主题颜色默认
+$hover-bg-dark: #2aa474; //hover主题颜色2
+
+/* hover 字体*/
+$hover-color-light: #ffffff; //hover主题颜色默认
+$hover-color-dark: #ffffff; //hover主题颜色2
+
+/* 字体颜色规范(激活) */
+$font-active-color-light: #d43c33; //字体主题颜色默认
+$font-active-color-dark: #ffcc33; //字体主题颜色2
+
+/* 边框颜色 */
+$border-color-light: #666; //边框主题颜色默认
+$border-color-dark: #fff; //边框主题颜色2
+
+/* 字体图标颜色 */
+$icon-color-light: #ffffff; //边框主题颜色默认
+$icon-color-dark: #ffcc2f; //边框主题颜色2
+
+$icon-light: #d43c33; //边框主题颜色默认
+$icon-dark: #ffcc2f; //边框主题颜色2

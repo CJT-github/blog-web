@@ -1,0 +1,65 @@
+{
+  "action": {
+    "exportPNG": "PNG をエクスポート",
+    "exportSVG": "SVG をエクスポート",
+    "reload": "リロード",
+    "close": "閉じる",
+    "settings": "設定",
+    "sign_out": "サインアウト",
+    "login": "ログイン",
+    "send": "送信"
+  },
+  "appInfo": {
+    "en": "英語では",
+    "zh-cn": "中国語で",
+    "ja": "日本語で",
+    "language": "言語",
+    "built_at": "ビルド {0}",
+    "login_with": "でログイン",
+    "signed_in_as": "としてサインイン",
+    "views": "ビュー ",
+    "notification": "通知",
+    "app_ready": "アプリケーションの準備ができました",
+    "app_update_notice": "新しいコンテンツが利用可能です。更新するにはリロード ボタンをクリックしてください。"
+  },
+  "menu": {
+    "learn": "学ぶ",
+    "classification": "カテゴリー別分類"
+  },
+  "login": {
+    "login_message": "ログインロック解除の詳細機能",
+    "welcome_back": "おかえり！",
+    "email": "Eメール",
+    "password": "パスワード",
+    "email_address": "電子メールアドレス",
+    "continue_with": "を続行 {0}",
+    "or": "または",
+    "no_account": "まだアカウントをお持ちでない場合は、",
+    "sign_up": "登録する",
+    "policy_tips": "続行すると、{0}と{1} ポリシーに同意したものとみなされます",
+    "service": "利用規約",
+    "policy": "プライバシー"
+  },
+  "signup": {
+    "username": "ユーザー名",
+    "back_login": "ログインに戻る",
+    "success": "成功!",
+    "error": "エラー!",
+    "signup_success_tips": "サインアップは成功しました。メールをチェックしてアカウントを確認してください。",
+    "captcha": "認証コード"
+  },
+  "setting": {
+    "avatar": "アバター",
+    "account": "アカウント",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "info_tips": "個人情報の表示のために利用させていただきます。",
+    "delete_account_tips": "当社のサービスを今後ご利用になりたくない場合は、こちらからアカウントを削除できます。この操作は元に戻せません。このアカウントに関連するすべての情報は永久に削除されます。",
+    "delete_account": "アカウントを削除",
+    "sure_delete": "本当にアカウントを削除してもよろしいですか?"
+  },
+  "server": {
+    "invalid_username_password": "ユーザー名またはパスワードが無効です。確認してもう一度お試しください。",
+    "email_exists": "メールアドレスはすでに存在します"
+  }
+}

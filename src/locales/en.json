@@ -1,0 +1,65 @@
+{
+  "action": {
+    "exportPNG": "Export PNG",
+    "exportSVG": "Export SVG",
+    "reload": "Reload",
+    "close": "Close",
+    "settings": "Settings",
+    "sign_out": "Sign out",
+    "login": "Login",
+    "send": "send"
+  },
+  "appInfo": {
+    "en": "English",
+    "zh-cn": "Chinese",
+    "ja": "Japanese",
+    "language": "Language",
+    "built_at": "Built {0}",
+    "signed_in_as": "Signed in as",
+    "login_with": "Log in with {0}",
+    "views": "Views: ",
+    "notification": "Notification",
+    "app_ready": "Application is ready",
+    "app_update_notice": "New content available, click the reload button to update."
+  },
+  "menu": {
+    "learn": "Learn",
+    "classification": "classification"
+  },
+  "login": {
+    "login_message": "Login to unlock more features",
+    "welcome_back": "Welcome back!",
+    "email": "Email",
+    "password": "Password",
+    "email_address": "Email Address",
+    "continue_with": "Continue with {0}",
+    "or": "or",
+    "no_account": "Don't have an account?",
+    "sign_up": "Sign Up",
+    "policy_tips": "By continuing, you are indicating that you have read and acknowledge the {0} and {1}.",
+    "service": "Terms of Service",
+    "policy": "Privacy Policy"
+  },
+  "signup": {
+    "username": "Username",
+    "back_login": "Back to Login",
+    "success": "Success!",
+    "error": "Error!",
+    "signup_success_tips": "Sign up successful, please check your email to verify your account.",
+    "captcha": "captcha"
+  },
+  "setting": {
+    "avatar": "Avatar",
+    "account": "Account",
+    "save": "Save",
+    "cancel": "Cancel",
+    "info_tips": "Will be used to display personal information.",
+    "delete_account_tips": "No longer want to use our service? You can delete your account here. This action is not reversible. All information related to this account will be deleted permanently.",
+    "delete_account": "Delete Account",
+    "sure_delete": "Are you sure you want to delete your account?"
+  },
+  "server": {
+    "invalid_username_password": "Invalid username or password, please check and try again",
+    "email_exists": "The email address already exists"
+  }
+}

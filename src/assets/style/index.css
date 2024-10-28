@@ -1,0 +1,27 @@
+body {
+  font-family: serif, sans-serif;
+}
+
+.page-width {
+  width: 1440px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  margin: auto;
+}
+
+.image-relative {
+  position: relative;
+  width: 100%;
+  padding-bottom: 20%;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
