@@ -79,15 +79,13 @@
           </button>
         </fieldset>
         <div class="mt-[25px] flex justify-end">
-          <DialogClose as-child>
-            <button
-              class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
-              @click="loginFn"
-              v-loading="isLoading"
-            >
-              {{ $t("login.sign_up") }}
-            </button>
-          </DialogClose>
+          <button
+            class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+            @click="loginFn"
+            v-loading="isLoading"
+          >
+            {{ $t("login.sign_up") }}
+          </button>
         </div>
         <DialogClose
           class="text-grass11 hover:bg-green4 focus:shadow-green7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
@@ -127,31 +125,57 @@ defineExpose({ open });
 
 const isLoading = ref(false);
 const loginFn = async () => {
-  open.value = false;
   isLoading.value = true;
+  if (!formState.username) {
+    messageRef.value!.message("warning", "请输入姓名");
+    isLoading.value = false;
+    return;
+  }
+  if (!formState.password) {
+    messageRef.value!.message("warning", "请输入密码");
+    isLoading.value = false;
+    return;
+  }
+  if (!formState.captcha) {
+    messageRef.value!.message("warning", "请输入验证码");
+    isLoading.value = false;
+    return;
+  }
+  if (!formState.email) {
+    messageRef.value!.message("warning", "请输入邮箱");
+    isLoading.value = false;
+    return;
+  }
+  if (!emailRegex.test(formState.email)) {
+    messageRef.value!.message("warning", "请输入合法邮箱");
+    isLoading.value = false;
+    return;
+  }
   const res = await register(formState);
-  console.log(res);
-  if (Object.keys(res).length) {
+  if (res && Object.keys(res).length) {
     messageRef.value!.message("success", "注册成功");
+    open.value = false;
+    emits("login", true);
   } else {
     messageRef.value!.message("error", "注册失败");
   }
   isLoading.value = false;
-  emits("login", true);
 };
 
 const captchaFn = async () => {
   isLoading.value = true;
   if (!formState.email) {
     messageRef.value!.message("warning", "请输入邮箱");
+    isLoading.value = false;
     return;
   }
   if (!emailRegex.test(formState.email)) {
     messageRef.value!.message("warning", "请输入合法邮箱");
+    isLoading.value = false;
     return;
   }
   const res = await registerCaptcha({ address: formState.email });
-  if (Object.keys(res).length) {
+  if (Object.keys(res.data.value).length) {
     messageRef.value!.message("success", "发送成功");
   } else {
     messageRef.value!.message("error", "发送失败");

@@ -58,13 +58,14 @@
           >
             {{ $t("login.sign_up") }}
           </a>
-          <DialogClose as-child>
-            <button
-              class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none ml-2"
-            >
-              {{ $t("action.login") }}
-            </button>
-          </DialogClose>
+
+          <button
+            class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none ml-2"
+            @click="requestFn"
+            v-loading="isLoading"
+          >
+            {{ $t("action.login") }}
+          </button>
         </div>
         <DialogClose
           class="text-grass11 hover:bg-green4 focus:shadow-green7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
@@ -72,6 +73,7 @@
         >
           <Icon icon="lucide:x" />
         </DialogClose>
+        <Message ref="messageRef"></Message>
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
@@ -91,6 +93,11 @@ import {
   DialogTrigger,
 } from "radix-vue";
 import { Icon } from "@iconify/vue";
+import { login } from "@/api/login.js";
+import Message from "@/components/message/index.vue";
+
+const token = useCookie("token", { maxAge: 60 * 60 * 24 });
+const user = useCookie("user", { maxAge: 60 * 60 * 24 });
 
 const open = ref(false);
 const registerRef = ref<null | any>(null);
@@ -98,6 +105,9 @@ const registerRef = ref<null | any>(null);
 const loginFn = (bl: boolean) => {
   open.value = bl;
 };
+
+const messageRef = ref<InstanceType<typeof Message>>();
+const isLoading = ref(false);
 
 const registerFn = () => {
   open.value = false;
@@ -118,4 +128,27 @@ const formState = reactive<FormState>({
   username: "",
   password: "",
 });
+
+const requestFn = async () => {
+  isLoading.value = true;
+  if (!formState.username) {
+    messageRef.value!.message("warning", "请输入姓名");
+    isLoading.value = false;
+    return;
+  }
+  if (!formState.password) {
+    messageRef.value!.message("warning", "请输入密码");
+    isLoading.value = false;
+    return;
+  }
+  const res = await login(formState);
+
+  if (res && Object.keys(res).length) {
+    token.value = res.token;
+    user.value = res.user;
+    messageRef.value!.message("success", "登录成功");
+    open.value = false;
+  }
+  isLoading.value = false;
+};
 </script>

@@ -22,7 +22,7 @@
             @click="selectLanguage(item.value)"
             :style="{
               background: locale === item.value ? 'green' : 'transparent',
-              color: locale === item.value && 'white',
+              color: locale === item.value ? 'white' : 'rgba(51,51,51,0.7)',
             }"
           >
             {{ $t(`appInfo.${item.value}`) }}

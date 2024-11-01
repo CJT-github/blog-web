@@ -1,5 +1,6 @@
 export const request = (url,payload,METHOD = 'GET',api_url) => {
 	const runtimeConfig = useRuntimeConfig();
+	const token = useCookie('token');
 	let requestOpt;
 
 	if(METHOD === 'GET') {
@@ -17,10 +18,15 @@ export const request = (url,payload,METHOD = 'GET',api_url) => {
 			}
 		}
 	}
-  return useFetch(url, {
+
+	const config = useFetch(url, {
+		server: true,
 		method: METHOD,
 		...requestOpt,
 		baseURL: api_url, // 接口地址
+		headers: {
+			Authorization: `Bearer ${token.value}`
+		},
 		async onRequest({ request, options }) {
 			// fetch request
 		},
@@ -34,4 +40,7 @@ export const request = (url,payload,METHOD = 'GET',api_url) => {
 			console.log("[fetch response error onResponseError]", error);
 		},
 	});
+
+	const { data } = config;
+  return data.value;
 };

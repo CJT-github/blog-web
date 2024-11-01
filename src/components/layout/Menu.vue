@@ -1,7 +1,7 @@
 <template>
   <NavigationMenuRoot
     v-model="currentTrigger"
-    class="relative z-[1] flex w-full justify-center pt-1 pb-1"
+    class="relative z-20 flex w-full justify-center pt-1 pb-1"
   >
     <NavigationMenuList
       class="center shadow-blackA7 m-0 flex gap-2 list-none p-1 page-width"

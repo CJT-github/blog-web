@@ -1,13 +1,17 @@
 <template>
   <div class="basic-container relative" id="message-tip">
-    <header class="shadow-md h-[50px]">
+    <header class="shadow-md h-[50px] z-20">
       <Menu />
     </header>
-    <main class="page-width min-height-100px flex gap-4 pt-6">
-      <div class="w-[18%]">
-        <Slide />
+    <main class="relative">
+      <div class="page-width min-height-100px flex gap-4 pt-6">
+        <div class="w-[18%]">
+          <Slide />
+        </div>
+        <div class="flex-1 relative">
+          <slot />
+        </div>
       </div>
-      <div class="flex-1"><slot /></div>
     </main>
     <div class="mt-[20px]">
       <footer class="page-width min-h-[50px] shadow-md">尾部</footer>
