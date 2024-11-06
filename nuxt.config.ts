@@ -21,6 +21,14 @@ export default defineNuxtConfig({
     "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/google-fonts",
   ],
+  googleFonts: {
+    families: {
+      Roboto: [400, 700],
+      "Rampart One": true,
+      "Long Cang": true,
+      "Yuji Mai": true,
+    },
+  },
   i18n: {
     locales: currentLocales,
     langDir: "locales",
@@ -50,14 +58,6 @@ export default defineNuxtConfig({
         },
       },
     },
-  },
-
-  googleFonts: {
-    families: {
-      serif: true,
-      "Open+Sans": true,
-    },
-    display: "swap",
   },
   srcDir: "src/",
 });

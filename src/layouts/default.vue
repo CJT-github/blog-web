@@ -1,11 +1,13 @@
 <template>
   <div class="basic-container relative" id="message-tip">
-    <header class="shadow-md h-[50px] z-20">
-      <Menu />
+    <header class="shadow-md z-20">
+      <div class="menu-container">
+        <Menu />
+      </div>
     </header>
     <main class="relative">
-      <div class="page-width min-height-100px flex gap-4 pt-6">
-        <div class="w-[18%]">
+      <div class="page-width min-height-100px flex gap-4 pt-6 main-container">
+        <div class="w-[18%] pc-slide">
           <Slide />
         </div>
         <div class="flex-1 relative">
@@ -32,6 +34,10 @@ import Slide from "@/components/layout/Slide.vue";
   width: 100%;
   font-size: $font_medium;
   @include bg_color();
+
+  * {
+    box-sizing: border-box;
+  }
 }
 </style>
 
@@ -39,5 +45,22 @@ import Slide from "@/components/layout/Slide.vue";
 @import "@/assets/style/index.css";
 .min-height-100px {
   min-height: calc(100vh - 100px);
+}
+
+@media (min-width: 991px) {
+  .pc-slide {
+    display: block;
+  }
+}
+@media (max-width: 990px) {
+  .pc-slide {
+    display: none;
+  }
+  .menu-container {
+    display: none;
+  }
+  .main-container {
+    display: block;
+  }
 }
 </style>

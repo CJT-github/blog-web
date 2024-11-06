@@ -50,6 +50,8 @@ import {
 
 const config = useConfig();
 
+const i18n_redirected = useCookie("i18n_redirected");
+
 const toggleState = ref(false);
 const { locale } = useI18n();
 
@@ -65,6 +67,7 @@ function selectLanguage(newLanguage) {
   if (!langInfo) return;
 
   config.language = langInfo.dir;
+  i18n_redirected.value = langInfo.value;
   locale.value = langInfo.value;
 }
 </script>

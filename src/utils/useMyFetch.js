@@ -2,6 +2,7 @@ export const request = (url,payload,METHOD = 'GET',api_url) => {
 	const runtimeConfig = useRuntimeConfig();
 	const token = useCookie('token');
 	let requestOpt;
+	let header = {}
 
 	if(METHOD === 'GET') {
 		requestOpt = {
@@ -19,14 +20,16 @@ export const request = (url,payload,METHOD = 'GET',api_url) => {
 		}
 	}
 
+	if(token) {
+		header.Authorization = `Bearer ${token.value}`;
+	}
+
 	const config = useFetch(url, {
 		server: true,
 		method: METHOD,
 		...requestOpt,
 		baseURL: api_url, // 接口地址
-		headers: {
-			Authorization: `Bearer ${token.value}`
-		},
+		header,
 		async onRequest({ request, options }) {
 			// fetch request
 		},

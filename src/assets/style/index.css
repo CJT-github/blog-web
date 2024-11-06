@@ -1,12 +1,5 @@
 body {
-  font-family: serif, sans-serif;
-}
-
-.page-width {
-  width: 1440px;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  margin: auto;
+  font-family: "Long Cang", "Yuji Mai", "Rampart One", "Roboto", sans-serif;
 }
 
 .image-relative {
@@ -24,4 +17,21 @@ body {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+@media (min-width: 991px) {
+  .page-width {
+    max-width: 1440px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin: auto;
+  }
+}
+@media (max-width: 990px) {
+  .page-width {
+    max-width: 990px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin: auto;
+  }
 }

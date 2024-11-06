@@ -1,10 +1,10 @@
 <template>
   <NavigationMenuRoot
     v-model="currentTrigger"
-    class="relative z-20 flex w-full justify-center pt-1 pb-1"
+    class="relative z-20 flex w-full justify-center pt-1 pb-1 menu-container"
   >
     <NavigationMenuList
-      class="center shadow-blackA7 m-0 flex gap-2 list-none p-1 page-width"
+      class="center shadow-blackA7 m-0 flex gap-2 list-none p-1 page-width w-full min-w-[1440px]"
     >
       <NavigationMenuItem>
         <NavigationMenuTrigger
@@ -17,10 +17,10 @@
           />
         </NavigationMenuTrigger>
         <NavigationMenuContent
-          class="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 left-0 w-full sm:w-auto"
+          class="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 left-0 w-full"
         >
           <ul
-            class="one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]"
+            class="one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] w-full"
           >
             <li class="row-span-3 grid">
               <NavigationMenuLink as-child>
@@ -111,6 +111,41 @@
               href="/docs/primitives/overview/releases"
             >
               Radix Primitives releases and their changelogs.
+            </NavigationMenuListItem>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+
+      <NavigationMenuItem>
+        <NavigationMenuTrigger
+          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]"
+        >
+          管理员
+          <Icon
+            icon="radix-icons:caret-down"
+            class="font_color relative top-[1px] transition-transform duration-[250ms] ease-in group-data-[state=open]:-rotate-180"
+          />
+        </NavigationMenuTrigger>
+        <NavigationMenuContent
+          class="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 left-0 w-full sm:w-auto"
+        >
+          <ul
+            class="m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[600px] sm:grid-flow-col sm:grid-rows-3"
+          >
+            <NavigationMenuListItem title="账户管理" href="/manager-account">
+            </NavigationMenuListItem>
+            <NavigationMenuListItem title="评论管理" href="/manager-comment">
+            </NavigationMenuListItem>
+            <NavigationMenuListItem title="博客管理" href="/manager-blog">
+            </NavigationMenuListItem>
+            <NavigationMenuListItem title="素材管理" href="/manager-material">
+            </NavigationMenuListItem>
+            <NavigationMenuListItem
+              title="字典管理"
+              href="/manager-dictionaries"
+            >
+            </NavigationMenuListItem>
+            <NavigationMenuListItem title="主题设置" href="/manager-setting">
             </NavigationMenuListItem>
           </ul>
         </NavigationMenuContent>
