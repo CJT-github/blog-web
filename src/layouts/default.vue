@@ -24,6 +24,13 @@
 <script setup>
 import Menu from "@/components/layout/Menu.vue";
 import Slide from "@/components/layout/Slide.vue";
+import { useConfig } from "@/store/index.js";
+
+const storeConfig = useConfig();
+
+useHead({
+  bodyAttrs: { "data-theme": storeConfig.theme },
+});
 </script>
 
 <style lang="scss">

@@ -222,25 +222,10 @@ const currentTrigger = ref("");
 const storeConfig = useConfig();
 const theme = computed(() => storeConfig.theme);
 
-const dd = ref(1);
-
-setTimeout(() => {
-  dd.value = 3;
-}, 3000);
-
-onMounted(() => {
-  document.documentElement.setAttribute("data-theme", storeConfig.theme);
-  watch(
-    () => dd.value,
-    () => {
-      console.log("2222");
-    },
-    { immediate: true }
-  );
-});
-
 const changeTheme = () => {
   storeConfig.theme = theme.value === "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", storeConfig.theme);
+  useHead({
+    bodyAttrs: { "data-theme": storeConfig.theme },
+  });
 };
 </script>

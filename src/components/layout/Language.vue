@@ -18,7 +18,7 @@
         <template v-for="item in languages" :key="item.value">
           <DropdownMenuItem
             value="New Tab"
-            class="group text-[13px] leading-none font_color rounded-[3px] flex items-center justify-center h-[25px] px-[5px] relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green-950"
+            class="group text-[14px] leading-none font_color rounded-[3px] flex items-center justify-center h-[25px] px-[5px] relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green-950"
             @click="selectLanguage(item.value)"
             :style="{
               background: locale === item.value ? 'green' : 'transparent',
