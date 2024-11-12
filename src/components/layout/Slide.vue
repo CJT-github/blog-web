@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full rounded-md sticky top-10">
+  <div class="w-full rounded-md sticky top-[75px]">
     <TreeRoot
       v-slot="{ flattenItems }"
       class="list-none select-none theme_box_shadow rounded-xl font_color w-full p-2 text-sm font-medium"
@@ -10,7 +10,7 @@
       <h2
         class="font-semibold !text-base font_color px-2 pt-1 pb-2 font-normal"
       >
-        Directory Structure
+        未定义目录
       </h2>
       <TreeItem
         v-for="item in flattenItems"

@@ -1,16 +1,13 @@
 <template>
   <div class="basic-container relative" id="message-tip">
-    <header class="shadow-md z-20">
-      <div class="menu-container">
+    <header class="shadow-md z-20 sticky top-0">
+      <div class="menu-container bg_color">
         <Menu />
       </div>
     </header>
     <main class="relative">
-      <div class="page-width min-height-100px flex gap-4 pt-6 main-container">
-        <div class="w-[18%] pc-slide">
-          <Slide />
-        </div>
-        <div class="flex-1 relative">
+      <div class="page-width min-height-120px pt-6 main-container">
+        <div class="relative">
           <slot />
         </div>
       </div>
@@ -23,7 +20,7 @@
 
 <script setup>
 import Menu from "@/components/layout/Menu.vue";
-import Slide from "@/components/layout/Slide.vue";
+
 import { useConfig } from "@/store/index.js";
 
 const storeConfig = useConfig();
@@ -50,19 +47,11 @@ useHead({
 
 <style lang="scss">
 @import "@/assets/style/index.css";
-.min-height-100px {
-  min-height: calc(100vh - 100px);
+.min-height-120px {
+  min-height: calc(100vh - 120px);
 }
 
-@media (min-width: 991px) {
-  .pc-slide {
-    display: block;
-  }
-}
 @media (max-width: 990px) {
-  .pc-slide {
-    display: none;
-  }
   .menu-container {
     display: none;
   }

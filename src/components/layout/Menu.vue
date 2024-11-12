@@ -4,11 +4,19 @@
     class="relative z-20 flex w-full justify-center pt-1 pb-1 menu-container"
   >
     <NavigationMenuList
-      class="center shadow-blackA7 m-0 flex gap-2 list-none p-1 page-width w-full min-w-[1440px]"
+      class="center shadow-blackA7 m-0 flex gap-2 list-none p-1 w-full min-w-[1440px]"
     >
       <NavigationMenuItem>
+        <NuxtLink
+          to="/"
+          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] px-3 py-2 text-[15px] font-medium leading-none rounded-[4px] outline-none"
+          :external="true"
+          >首页</NuxtLink
+        >
+      </NavigationMenuItem>
+      <NavigationMenuItem>
         <NavigationMenuTrigger
-          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] px-3 py-2 text-[15px] font-medium leading-none rounded-[4px] outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] px-3 py-2 text-[15px] font-medium leading-none rounded-[4px] outline-none"
         >
           {{ $t("menu.learn") }}
           <Icon
@@ -25,7 +33,7 @@
             <li class="row-span-3 grid">
               <NavigationMenuLink as-child>
                 <a
-                  class="focus:font_active_color from-green9 to-teal9 flex h-full w-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
+                  class="focus:font_active_color from-green9 to-teal9 flex h-full w-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none"
                   href="/"
                 >
                   <img class="w-16" src="https://www.radix-vue.com/logo.svg" />
@@ -62,7 +70,7 @@
 
       <NavigationMenuItem>
         <NavigationMenuTrigger
-          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none"
         >
           {{ $t("menu.classification") }}
           <Icon
@@ -118,7 +126,7 @@
 
       <NavigationMenuItem>
         <NavigationMenuTrigger
-          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none"
         >
           管理员
           <Icon
@@ -153,12 +161,12 @@
 
       <NavigationMenuItem class="ml-auto flex gap-2 items-center">
         <NavigationMenuLink
-          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none"
         >
           <Language />
         </NavigationMenuLink>
         <NavigationMenuLink
-          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none"
           @click="changeTheme(theme)"
         >
           <Icon
@@ -173,7 +181,7 @@
           />
         </NavigationMenuLink>
         <NavigationMenuLink
-          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none"
           href="https://github.com/CJT-github/blog.git"
         >
           <Icon
@@ -182,7 +190,7 @@
           />
         </NavigationMenuLink>
         <NavigationMenuLink
-          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+          class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none"
         >
           <Login />
         </NavigationMenuLink>
