@@ -15,69 +15,77 @@
         >
           {{ $t("login.login_message") }}.
         </DialogDescription>
-        <fieldset class="mb-[15px] flex items-center gap-5">
-          <label
-            class="text-grass11 w-[90px] text-right text-[15px]"
-            for="username"
-          >
-            {{ $t("signup.username") }}
-          </label>
-          <input
-            id="username"
-            class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-            defaultValue=""
-            @change="(e) => inputFn(e, 'username')"
-          />
-        </fieldset>
-        <fieldset class="mb-[15px] flex items-center gap-5">
-          <label
-            class="text-grass11 w-[90px] text-right text-[15px]"
-            for="password"
-          >
-            {{ $t("login.password") }}
-          </label>
-          <input
-            id="password"
-            class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-            defaultValue=""
-            @change="(e) => inputFn(e, 'password')"
-          />
-        </fieldset>
-        <fieldset class="mb-[15px] flex items-center gap-5">
-          <label
-            class="text-grass11 w-[90px] text-right text-[15px]"
-            for="email"
-          >
-            {{ $t("login.email") }}
-          </label>
-          <input
-            id="email"
-            class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-            defaultValue=""
-            @change="(e) => inputFn(e, 'email')"
-          />
-        </fieldset>
-        <fieldset class="mb-[15px] flex items-center gap-5">
-          <label
-            class="text-grass11 w-[90px] text-right text-[15px]"
-            for="captcha"
-          >
-            {{ $t("signup.captcha") }}
-          </label>
-          <input
-            id="captcha"
-            class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-            defaultValue=""
-            @change="(e) => inputFn(e, 'captcha')"
-          />
-          <button
-            class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
-            @click="captchaFn"
-            v-loading="isLoading"
-          >
-            {{ $t("action.send") }}
-          </button>
-        </fieldset>
+        <form action="" name="formState" novalidate id="register">
+          <fieldset class="mb-[15px] flex items-center gap-5">
+            <label
+              class="text-grass11 w-[90px] text-right text-[15px]"
+              for="username"
+            >
+              {{ $t("signup.username") }}
+            </label>
+            <input
+              id="username"
+              class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+              defaultValue=""
+              type="text"
+              @change="(e) => inputFn(e, 'username')"
+            />
+          </fieldset>
+          <fieldset class="mb-[15px] flex items-center gap-5">
+            <label
+              class="text-grass11 w-[90px] text-right text-[15px]"
+              for="password"
+            >
+              {{ $t("login.password") }}
+            </label>
+            <input
+              id="password"
+              type="password"
+              class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+              defaultValue=""
+              @change="(e) => inputFn(e, 'password')"
+            />
+          </fieldset>
+          <fieldset class="mb-[15px] flex items-center gap-5">
+            <label
+              class="text-grass11 w-[90px] text-right text-[15px]"
+              for="email"
+            >
+              {{ $t("login.email") }}
+            </label>
+            <input
+              id="email"
+              type="email"
+              class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+              defaultValue=""
+              @change="(e) => inputFn(e, 'email')"
+            />
+          </fieldset>
+          <fieldset class="mb-[15px] flex items-center gap-5">
+            <label
+              class="text-grass11 w-[90px] text-right text-[15px]"
+              for="captcha"
+            >
+              {{ $t("signup.captcha") }}
+            </label>
+            <input
+              id="captcha"
+              type="text"
+              class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+              defaultValue=""
+              @change="(e) => inputFn(e, 'captcha')"
+            />
+            <button
+              class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+              @click.stop="captchaFn"
+              type="button"
+              v-loading="isLoading"
+            >
+              {{ $t("action.send") }}
+            </button>
+          </fieldset>
+        </form>
+
         <div class="mt-[25px] flex justify-end">
           <button
             class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
@@ -88,7 +96,7 @@
           </button>
         </div>
         <DialogClose
-          class="text-grass11 hover:bg-green4 focus:shadow-green7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+          class="text-grass11 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full"
           aria-label="Close"
         >
           <Icon icon="lucide:x" />
@@ -175,7 +183,8 @@ const captchaFn = async () => {
     return;
   }
   const res = await registerCaptcha({ address: formState.email });
-  if (Object.keys(res.data.value).length) {
+  console.log(res);
+  if (res && Object.keys(res).length) {
     messageRef.value!.message("success", "发送成功");
   } else {
     messageRef.value!.message("error", "发送失败");

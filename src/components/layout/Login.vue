@@ -26,41 +26,45 @@
         </div>
         <div class="p-[25px]">
           <DialogTitle class="text-mauve12 m-0 text-[17px] font-semibold">
-            {{ !token ? $t("action.login") : "用户信息" }}
+            {{ $t("action.login") }}
           </DialogTitle>
           <DialogDescription
             class="text-mauve11 mt-[10px] mb-5 text-[15px] leading-normal"
           >
-            {{ !token ? $t("login.login_message") : "修改用户信息" }}.
+            {{ $t("login.login_message") }}.
           </DialogDescription>
-          <fieldset class="mb-[15px] flex items-center gap-5">
-            <label
-              class="text-grass11 w-[90px] text-right text-[15px]"
-              for="username"
-            >
-              {{ $t("signup.username") }}
-            </label>
-            <input
-              id="username"
-              class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-              :defaultValue="formState.username"
-              @change="(e) => inputFn(e, 'username')"
-            />
-          </fieldset>
-          <fieldset class="mb-[15px] flex items-center gap-5">
-            <label
-              class="text-grass11 w-[90px] text-right text-[15px]"
-              for="password"
-            >
-              {{ $t("login.password") }}
-            </label>
-            <input
-              id="password"
-              class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-              defaultValue=""
-              @change="(e) => inputFn(e, 'password')"
-            />
-          </fieldset>
+          <form id="login">
+            <fieldset class="mb-[15px] flex items-center gap-5">
+              <label
+                class="text-grass11 w-[90px] text-right text-[15px]"
+                for="username"
+              >
+                {{ $t("signup.username") }}
+              </label>
+              <input
+                id="username"
+                type="text"
+                class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+                :defaultValue="formState.username"
+                @change="(e) => inputFn(e, 'username')"
+              />
+            </fieldset>
+            <fieldset class="mb-[15px] flex items-center gap-5">
+              <label
+                class="text-grass11 w-[90px] text-right text-[15px]"
+                for="password"
+              >
+                {{ $t("login.password") }}
+              </label>
+              <input
+                id="password"
+                type="password"
+                class="text-grass11 shadow-green7 focus:shadow-green8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+                defaultValue=""
+                @change="(e) => inputFn(e, 'password')"
+              />
+            </fieldset>
+          </form>
           <div class="mt-[25px] flex justify-end">
             <a
               class="text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none cursor-pointer"
@@ -78,7 +82,7 @@
             </button>
           </div>
           <DialogClose
-            class="text-grass11 hover:bg-green4 focus:shadow-green7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+            class="text-grass11 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full"
             aria-label="Close"
           >
             <Icon icon="lucide:x" />

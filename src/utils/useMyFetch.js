@@ -1,5 +1,4 @@
 export const request = (url,payload,METHOD = 'GET',api_url) => {
-	const runtimeConfig = useRuntimeConfig();
 	const token = useCookie('token');
 	let requestOpt;
 	let header = {}
@@ -45,5 +44,5 @@ export const request = (url,payload,METHOD = 'GET',api_url) => {
 	});
 
 	const { data } = config;
-  return data.value;
+  return new Promise((res) => res(data.value));
 };

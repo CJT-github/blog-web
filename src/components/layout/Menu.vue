@@ -192,7 +192,8 @@
         <NavigationMenuLink
           class="font_color hover_color focus:font_active_color block select-none rounded-[4px] px-3 py-2 font-medium leading-none no-underline outline-none"
         >
-          <Login />
+          <Login v-if="!token" />
+          <Update v-else />
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>
@@ -224,6 +225,9 @@ import {
 import NavigationMenuListItem from "./NavigationMenuListItem.vue";
 import Language from "./Language.vue";
 import Login from "./Login.vue";
+import Update from "./Update.vue";
+
+const token = useCookie("token", { maxAge: 60 * 60 * 24 });
 
 const currentTrigger = ref("");
 

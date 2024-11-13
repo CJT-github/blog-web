@@ -51,8 +51,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     },
     updated(el: HTMLElementWithLoading, binding) {
       if (binding.value) {
+        el.style.pointerEvents = "none";
         el._loadingElement.style.display = "flex"; // 显示加载动画
       } else {
+        el.style.pointerEvents = "auto";
         el._loadingElement.style.display = "none"; // 隐藏加载动画
       }
     },
