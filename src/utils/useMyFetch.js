@@ -1,34 +1,19 @@
 export const request = (url,payload,METHOD = 'GET',api_url) => {
 	const token = useCookie('token');
-	let requestOpt;
 	let header = {}
-
-	if(METHOD === 'GET') {
-		requestOpt = {
-			params: {
-				...payload
-			}
-		}
-	}
-
-	if(METHOD === 'POST') {
-		requestOpt = {
-			body: {
-				...payload
-			}
-		}
-	}
-
+	
 	if(token) {
-		header.Authorization = `Bearer ${token.value}`;
+		header.authorization = `Bearer ${token.value}`;
 	}
+	
 
 	const config = useFetch(url, {
 		server: true,
 		method: METHOD,
-		...requestOpt,
+		params: METHOD === 'GET' ? payload: null,
+		body: METHOD === 'POST' ? payload: null,
 		baseURL: api_url, // 接口地址
-		header,
+		headers: header,
 		async onRequest({ request, options }) {
 			// fetch request
 		},

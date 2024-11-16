@@ -2,7 +2,7 @@
   <div>
     <div class="mb-4 flex justify-between">
       <div class="font_color">博客创造</div>
-      <button class="font_color">保存</button>
+      <button class="font_color" @click="createBlogFn">保存</button>
     </div>
     <form>
       <input
@@ -44,7 +44,7 @@
         <div class="my-2"><label class="font_color">内容</label></div>
 
         <Editor
-          :value="mesages.article"
+          :value="message.article"
           :plugins="plugins"
           @change="handleChange"
         />
@@ -64,17 +64,18 @@ import gemoji from "@bytemd/plugin-gemoji";
 import mediumZoom from "@bytemd/plugin-medium-zoom";
 import highlight from "@bytemd/plugin-highlight";
 import "highlight.js/styles/default.css";
+import { createBlog, uploadImage } from "@/api/blog_system.js";
 
 const plugins = [gfm(), highlight(), gemoji(), mermaid(), mediumZoom()];
 
-const mesages = ref({
+const message = ref({
   title: "",
   article: "",
   synopsis: "",
 });
 
 const handleChange = (v) => {
-  mesages.value.article = v;
+  message.value.article = v;
 };
 
 const uploadFile = () => {
@@ -82,9 +83,8 @@ const uploadFile = () => {
   el.click();
 };
 
-const change = (e) => {
+const change = async (e) => {
   let file = e.target.files[0];
-  console.log(file);
 
   if (!file) return;
 
@@ -93,20 +93,27 @@ const change = (e) => {
     return;
   }
 
-  const maxSize = 2 * 1024 * 1024; // 2MB
+  const maxSize = 3 * 1024 * 1024; // 2MB
   if (file.size > maxSize) {
-    console.log("图片大小超过2MB，请选择小一些的图片");
+    console.log("图片大小超过3MB，请选择小一些的图片");
     return;
   }
-
+  // 创建 FormData 数据
+  const formData = new FormData();
+  formData.set("file", file);
+  const res = await uploadImage(formData);
   // 通过 FileReader 预览图片
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
-    img.src = e.target.result;
-    // document.body.appendChild(img);
-  };
-  reader.readAsDataURL(file);
+  // const reader = new FileReader();
+  // reader.onload = function (e) {
+  //   const img = new Image();
+  //   img.src = e.target.result;
+  //   // document.body.appendChild(img);
+  // };
+  // reader.readAsDataURL(file);
+};
+
+const createBlogFn = async () => {
+  await createBlog();
 };
 </script>
 
